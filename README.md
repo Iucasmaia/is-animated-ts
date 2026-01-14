@@ -1,9 +1,5 @@
 # is-animated-ts
 
-[![npm][npm-image]][npm-url]
-[![travis][travis-image]][travis-url]
-[![coverage][coveralls-image]][coveralls-url]
-
 **is-animated-ts** is a simple TypeScript library for detecting animated images, supporting GIFs, APNG, and WebP formats. Fully typed with comprehensive TypeScript support.
 
 ## Install
@@ -83,15 +79,3 @@ This library is written in TypeScript and provides:
 ## License
 
 [MIT](LICENSE.md)
-
-
-[npm-image]: https://img.shields.io/npm/v/is-animated.svg
-[npm-url]: https://www.npmjs.com/package/is-animated
-[travis-image]: https://img.shields.io/travis/qzb/is-animated.svg
-[travis-url]: https://travis-ci.org/qzb/is-animated
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[standard-url]: http://npm.im/standard
-[standard-version-image]: https://img.shields.io/badge/release-standard%20version-brightgreen.svg
-[standard-version-url]: https://github.com/conventional-changelog/standard-version
-[coveralls-image]: https://img.shields.io/coveralls/qzb/is-animated/master.svg
-[coveralls-url]: https://coveralls.io/r/qzb/is-animated?branch=master

@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Iucasmaia/is-animated.git"
+    "url": "git+https://github.com/Iucasmaia/is-animated.git"
   },
   "license": "MIT",
   "author": "Józef Sokołowski <j.k.sokolowski@gmail.com>",
@@ -35,6 +35,7 @@
     "clean": "rm -rf dist",
     "lint": "eslint lib/**/*.ts test/**/*.ts",
     "lint:fix": "eslint lib/**/*.ts test/**/*.ts --fix",
+    "prepare": "yarn build",
     "test": "yarn build && tape dist/test/*.js | tap-spec",
     "test-ci": "yarn build && nyc --reporter=lcov tape dist/test/*.js | tap-spec",
     "typecheck": "tsc --noEmit"
