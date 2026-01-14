@@ -1,5 +1,5 @@
 {
-  "name": "is-animated",
+  "name": "is-animated-ts",
   "version": "2.0.2",
   "description": "Detects animated images",
   "keywords": [
@@ -12,56 +12,44 @@
     "apng",
     "gif",
     "png",
-    "webp"
+    "webp",
+    "typescript"
   ],
-  "homepage": "https://github.com/qzb/is-animated",
+  "homepage": "https://github.com/Iucasmaia/is-animated",
   "bugs": {
-    "url": "https://github.com/qzb/is-animated/issues"
+    "url": "https://github.com/Iucasmaia/is-animated/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/qzb/is-animated.git"
+    "url": "https://github.com/Iucasmaia/is-animated.git"
   },
   "license": "MIT",
   "author": "Józef Sokołowski <j.k.sokolowski@gmail.com>",
-  "main": "lib/index.js",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "files": [
-    "lib"
+    "dist/lib"
   ],
   "scripts": {
-    "commit": "git-cz",
-    "commit:retry": "git-cz --retry",
-    "commitmsg": "commitlint -e",
-    "release": "standard-version",
-    "test": "standard && tape test/*.js | tap-spec",
-    "test-ci": "standard && istanbul cover --report lcovonly -- tape test/*.js | tap-spec"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/@commitlint/prompt"
-    }
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint lib/**/*.ts test/**/*.ts",
+    "lint:fix": "eslint lib/**/*.ts test/**/*.ts --fix",
+    "test": "yarn build && tape dist/test/*.js | tap-spec",
+    "test-ci": "yarn build && nyc --reporter=lcov tape dist/test/*.js | tap-spec",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^7.5.0",
-    "@commitlint/prompt": "^16.0.0",
-    "@commitlint/travis-cli": "^16.0.2",
-    "commitizen": "^4.2.4",
-    "husky": "^1.3.1",
-    "istanbul": "^0.4.3",
+    "@types/node": "^25.0.8",
+    "@types/tape": "^5.8.1",
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
+    "eslint": "^9.39.2",
+    "nyc": "^17.0.0",
     "standard": "^15.0.1",
     "standard-version": "^9.3.2",
     "tap-spec": "^2.2.2",
-    "tape": "^4.0.0"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "tape": "^4.0.0",
+    "typescript": "^5.9.3"
   }
 }

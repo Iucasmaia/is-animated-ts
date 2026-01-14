@@ -1,9 +1,7 @@
-'use strict'
-
-var fs = require('fs')
-var path = require('path')
-var test = require('tape')
-var isAnimated = require('../lib')
+import * as fs from 'fs'
+import * as path from 'path'
+import test from 'tape'
+import isAnimated = require('../lib')
 
 var types = ['gif', 'png', 'webp']
 

@@ -1,33 +1,84 @@
-# is-animated
+# is-animated-ts
 
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![coverage][coveralls-image]][coveralls-url]
-[![standard][standard-image]][standard-url]
-[![standard version][standard-version-image]][standard-version-url]
 
-**is-animated** is a simple library for detecting animated images, it supports not only GIFs, but also APNG and WebP images.
+**is-animated-ts** is a simple TypeScript library for detecting animated images, supporting GIFs, APNG, and WebP formats. Fully typed with comprehensive TypeScript support.
 
 ## Install
 
-```
-npm install is-animated
+```bash
+yarn add is-animated-ts
+# or
+npm install is-animated-ts
 ```
 
-## Example
+## Features
 
-```js
+- ✅ **Full TypeScript support** with type definitions
+- ✅ **Zero dependencies** - lightweight and fast
+- ✅ **Multiple formats** - GIF, APNG, and WebP
+- ✅ **Strict type checking** - catches errors at compile time
+- ✅ **Comprehensive documentation** - JSDoc comments throughout
+
+## TypeScript Example
+
+```typescript
+import * as fs from 'fs'
+import isAnimated from 'is-animated-ts'
+
+const filename = process.argv[2]
+
+fs.readFile(filename, (err: NodeJS.ErrnoException | null, buffer: Buffer) => {
+  if (err) {
+    console.error('Error reading file:', err)
+    return
+  }
+
+  const answer = isAnimated(buffer) ? 'Yes' : 'No'
+  console.log(`Is "${filename}" animated? ${answer}.`)
+})
+```
+
+## JavaScript Example
+
+```javascript
 const fs = require('fs')
-const isAnimated = require('is-animated')
+const isAnimated = require('is-animated-ts')
 
 const filename = process.argv[2]
 
 fs.readFile(filename, (err, buffer) => {
+  if (err) {
+    console.error('Error reading file:', err)
+    return
+  }
+
   const answer = isAnimated(buffer) ? 'Yes' : 'No'
   console.log(`Is "${filename}" animated? ${answer}.`)
 })
-
 ```
+
+## API
+
+### `isAnimated(buffer: Buffer): boolean`
+
+Checks if the provided buffer contains an animated image.
+
+- **Parameters:**
+  - `buffer` - The image buffer to check (must be a Node.js Buffer)
+- **Returns:** `true` if the image is animated, `false` otherwise
+- **Supported formats:** GIF, APNG (Animated PNG), WebP
+
+## TypeScript Benefits
+
+This library is written in TypeScript and provides:
+
+- **Type safety** - Catch errors at compile time
+- **Better IDE support** - IntelliSense, auto-completion, and refactoring
+- **Documentation** - Inline JSDoc comments with parameter and return types
+- **Modern JavaScript** - ES2020 features with backward compatibility
 
 ## License
 
@@ -44,5 +95,3 @@ fs.readFile(filename, (err, buffer) => {
 [standard-version-url]: https://github.com/conventional-changelog/standard-version
 [coveralls-image]: https://img.shields.io/coveralls/qzb/is-animated/master.svg
 [coveralls-url]: https://coveralls.io/r/qzb/is-animated?branch=master
-
-
